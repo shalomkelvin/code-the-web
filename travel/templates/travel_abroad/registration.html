@@ -1,0 +1,24 @@
+{% extends "travel_abroad/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+
+
+
+<div class="jumbotron">
+  {% if registered %}
+   <h2>Thank you for registering!</h2>
+   {% else %}
+
+   <h2>Register here!</h2>
+   <h2>Fill out the form below:</h2>
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ user_form.as_p }}
+      {{ profile_form.as_p }}
+      <input type="submit" name="" value="Register">
+    </form>
+
+   {% endif %}
+</div>
+{% endblock %}

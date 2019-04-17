@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Travel</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <nav class="navbar is-primary" role = navigation aria-label="main-navigation">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="{% url 'index' %}">Homepage</a></li>
+           <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+          <li><a class="navbar-link" href="{% url 'travel_abroad:register' %}">Register</a></li>
+
+          {% if user.is_authenticated %}
+           <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a class="navbar-link" href="{% url 'travel_abroad:user_login' %}">Login</a></li>
+          {% endif %}
+
+
+
+
+        </ul>
+
+      </div>
+    </nav>
+  <div class="container">
+    {% block body_block %}
+    {% endblock %}
+
+    <h1>Hello Kelvin do you want to travel abroad?</h1>
+
+  </div>
+  </body>
+</html>

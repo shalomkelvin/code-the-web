@@ -1,0 +1,20 @@
+{% extends 'travel_abroad/base.html' %}
+{% block body_block %}
+
+<div class="jumbotron">
+
+  <h1>Please Login</h1>
+  <form class="" action="{% url 'travel_abroad:user_login' %}" method="post">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" placeholder="Enter your username">
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="Enter your password">
+
+    <input type="submit" name="" value="Login">
+
+  </form>
+
+</div>
+{% endblock %}
